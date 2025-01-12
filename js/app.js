@@ -32,6 +32,8 @@ let history = [];
 function handleGuess() {
     const guess = Number(guessInput.value);
     // get player guess from element "guessInput"
+    
+    // validation
     if (!guess || guess < 1 || guess > 10 || !Number.isInteger(guess)) {
         // "!guess" logical "NOT" checks if falsy value
         // "guess < 1" check if greater than 1
