@@ -107,7 +107,17 @@ function handleGuess() {
 
 // end game
 function endGame(isWin) {
+    
+    // set button conditions from readme
+    
+    submitBtn.disabled = true;
+    // disables submit button "submitBtn"
+    
+    restartBtn.disabled = false;
+    // enables restart button "restartBtn"
 
+    guessInput.disabled = true;
+    // disables guess input box "guessInput"
 }
 
 // restart game
