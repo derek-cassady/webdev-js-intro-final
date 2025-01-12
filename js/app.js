@@ -42,3 +42,7 @@ function endGame(isWin) {
 function restartGame() {
 
 }
+
+// event listeners
+submitBtn.addEventListener("click", handleGuess);
+restartBtn.addEventListener("click", restartGame);
