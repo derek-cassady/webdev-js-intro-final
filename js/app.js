@@ -26,7 +26,7 @@ let attempts = 0;
 const maxAttempts = 3; 
 // max allowed guesses
 let history = []; 
-// assigns var 'history' to a blank list to be added to
+// assigns var 'history' to a blank array to be added to
 
 // handle guesses
 function handleGuess() {
@@ -50,7 +50,15 @@ function handleGuess() {
     
     // guess history
     history.push(guess);
-    // update guess history list
+    // update guess history array
+
+    //update readouts
+    currentGuess.textContent = guess;
+    // puts the player guess into the DOM "currentGuess"
+    
+    guessHistory.textContent = history.join(", ");
+    // joins the guesses in the array with a ", " between them
+    // updates DOM "guessHistory" with the array turned into a readable list
 }
 
 // end game
