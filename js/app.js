@@ -26,7 +26,7 @@ let attempts = 0;
 const maxAttempts = 3; 
 // max allowed guesses
 let history = []; 
-// assigns var 'history' to a blank array to be added to
+// assigns var 'history' to a blank list to be added to
 
 // handle guesses
 function handleGuess() {
@@ -39,9 +39,18 @@ function handleGuess() {
         // "!Number.isInteger(guess)" logical "NOT" makes sure input is a whole number
         // "||" logical "OR"
         guessMessage.textContent = "Please enter a whole number between 1 and 10.";
+        // error message for failed validation
         return; 
-        // Exit if the input is invalid
+        // exit if input failed validation
     }
+
+    // attempt counter
+    attempts = attempts + 1;
+    // increment attempt counter
+    
+    // guess history
+    history.push(guess);
+    // update guess history list
 }
 
 // end game
