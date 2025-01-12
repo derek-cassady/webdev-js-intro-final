@@ -30,7 +30,18 @@ let history = [];
 
 // handle guesses
 function handleGuess() {
-
+    const guess = Number(guessInput.value);
+    // get player guess from element "guessInput"
+    if (!guess || guess < 1 || guess > 10 || !Number.isInteger(guess)) {
+        // "!guess" logical "NOT" checks if falsy value
+        // "guess < 1" check if greater than 1
+        // "guess > 10" check if less than 10
+        // "!Number.isInteger(guess)" logical "NOT" makes sure input is a whole number
+        // "||" logical "OR"
+        guessMessage.textContent = "Please enter a whole number between 1 and 10.";
+        return; 
+        // Exit if the input is invalid
+    }
 }
 
 // end game
