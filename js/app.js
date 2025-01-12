@@ -27,3 +27,18 @@ const maxAttempts = 3;
 // max allowed guesses
 let history = []; 
 // assigns var 'history' to a blank array to be added to
+
+// handle guesses
+function handleGuess() {
+
+}
+
+// end game
+function endGame(isWin) {
+
+}
+
+// restart game
+function restartGame() {
+
+}
