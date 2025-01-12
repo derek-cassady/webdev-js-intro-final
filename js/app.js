@@ -118,6 +118,19 @@ function endGame(isWin) {
 
     guessInput.disabled = true;
     // disables guess input box "guessInput"
+
+    if (isWin) {
+    // parameter for "true" called by "handleGuess"
+        
+        guessMessage.textContent += " Well done!";
+        // updates DOM "guessMessage" with string appended to it 
+    
+    } else {
+    // parameter for "false" called by "handleGuess"
+        
+        guessMessage.textContent += " Better luck next time!";
+        // updates DOM "guessMessage" with string appended to it
+    }
 }
 
 // restart game
