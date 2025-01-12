@@ -16,15 +16,20 @@ const submitBtn = document.getElementById("submit-btn"); //line 38
 const restartBtn = document.getElementById("restart-btn"); //line 39
 
 // game vars
+
+// computerGuess
 let randomNumber = Math.floor(Math.random() * 10) + 1; 
 // Math.random() gives number between 0 and 1
 // *10 to get a number between 0 and 10
 // Math.floor() Rounds down the decimal to a whole number
 // +1 makes sure the range is 1 - 10
+
 let attempts = 0; 
 // track the number of guesses
+
 const maxAttempts = 3; 
 // max allowed guesses
+
 let history = []; 
 // assigns var 'history' to a blank array to be added to
 
@@ -61,6 +66,43 @@ function handleGuess() {
     guessHistory.textContent = history.join(", ");
     // joins the guesses in the array with a ", " between them
     // updates DOM "guessHistory" with the array turned into a readable list
+
+    // guess logic
+
+    // win
+    if (guess === randomNumber) {
+        // guess is equal to "computerGuess"/var "randomNumber"
+        guessMessage.textContent = "Congratulations! You guessed the correct number!";
+        // updates DOM "guessMessage" with string
+        computerGuess.textContent = randomNumber;
+        // updates DOM "computerGuess" var "randomNumber" to show match
+        endGame(true);
+        // call function "endGame" to run with win conditions (true)
+    } 
+    
+    // lose
+    else if (attempts >= maxAttempts) {
+        // checks attempts versus var "maxAttempts"
+        guessMessage.textContent = "Game over! You've used all your attempts.";
+        // updates DOM "guessMessage" with string
+        computerGuess.textContent = randomNumber;
+        // updates DOM "computerGuess" var "randomNumber" to show winning condition
+        endGame(false);
+        // call function "endGame" to run with lose conditions (false)
+    } 
+    
+    // too low
+    else if (guess < randomNumber) {
+        // checks guess versus "computerGuess"/var "randomNumber"
+        guessMessage.textContent = "Too low! Try again.";
+        // updates DOM "guessMessage" with string
+    } 
+    
+    // too high (all other conditions covered, only need "else" for message")
+    else {
+        guessMessage.textContent = "Too high! Try again.";
+        // updates DOM "guessMessage" with string
+    }
 }
 
 // end game
