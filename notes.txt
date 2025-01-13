@@ -1,0 +1,187 @@
+index.html elements
+
+guess-input
+guess-message
+current-guess
+computer-guess
+guess-history
+submit-btn
+restart-btn
+
+guess conditions:
+    win - match the number
+    lose - run out of guesses
+    too low
+    too high
+
+game conditions:
+	win
+		endgame condition for winning
+			disable submit button and guess input
+			enable restart button
+            disable submit button and input
+            clear fields
+			messages
+				win message
+	lose
+		button settings are the same for both conditions
+		else statement from win condition
+        enable restart button
+        disable submit button and input
+        clear fields
+		message
+            lose message
+		
+variables:
+    random number
+    player guess
+        global or function
+    attempts
+    max attempts
+        set as const
+    history
+
+elements:
+    "Result"
+        "guess-message"
+            all messages and errors show here
+            updates with each guess on "submit-btn"
+            clears after restart
+
+    "Your Guess:"
+        "current-guess"
+            get number from "guess-input" (.value)
+            updates with each guess on "submit-btn"
+            disabled on win/lose
+            enables on restart
+            clears after restart
+
+    "Computer Guess:"
+        "computer-guess"
+            "number within the range of 1 through 10." (from readme)
+                random number generator (stackoverflow)
+                    math.random as decimal between 0 and 1
+                        multiply by 10, then math.floor to round
+                            add 1 to range 0 - 1
+            updates on win or lose
+            clears after restart
+
+    "Guess History:"
+        "guess-history"
+            variable for an array 
+            start empty and add to it after each guess is validated
+            updates with each guess on "submit-btn"
+                print array?
+            clears after restart
+
+    "Submit Guess"
+        "submit-btn"
+            event listener
+            enabled during game
+            disabled on win or lose
+
+    "Restart"
+        "restart-btn"
+            event listener
+            disabled during game
+            enabled on win or lose
+        reset variables
+            set new random number
+            clear attempts
+            clear history
+        clear input
+            guess-input
+                enable input
+        clear readouts
+            guess-message
+            current-guess
+            computer-guess
+            guess-history
+        buttons
+            submit-btn
+                enabled
+            restart-btn
+                disabled
+    
+functions:
+    guess handler
+            validation
+                fail validation
+                    message
+                        whole number 1-10
+                pass validation
+                    continue to logic
+            logic
+                update
+                    "Guess History:"
+                if
+                    checks for match
+                        win (calls winning function)
+                            update
+                                "Result"
+                                    win message
+                    update
+                        "Your Guess:
+                        "Computer Guess:"
+
+                else/if (calls losing function)
+                    checks attempts versus max
+                        lose (calls losing function)
+                            update
+                                "Result"
+                                    lose message
+                else/if
+                    checks guess is low
+                    update
+                        "Result"
+                            too low
+                else (only one remains)
+                    checks guess is high
+                    update
+                        "Result"
+                            too high
+    
+    win/lose
+        input
+            "guess-input"
+                disable
+        buttons
+            "submit-btn"
+                disable
+            "restart-btn"
+                enable
+        logic
+            if (win)
+                update
+                    "Result"
+                        win message
+            else (lose)
+                    "Result"
+                        lose message
+
+    restart
+        input
+            "guess-input"
+                enable
+        buttons
+            "submit-btn"
+                enable
+            "restart-btn"
+                disable
+        reset variables
+            set new random number
+            clear attempts
+            clear history
+        clear input
+            guess-input
+                enable input
+        clear readouts
+            guess-message
+            current-guess
+            computer-guess
+            guess-history
+
+event listeners
+    buttons
+        "submit-btn"
+        "restart-btn"
