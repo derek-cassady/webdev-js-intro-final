@@ -160,6 +160,17 @@ function restartGame() {
     currentGuess.textContent = "";
     computerGuess.textContent = "";
     guessHistory.textContent = "";
+
+    // set button conditions from readme
+    
+    submitBtn.disabled = false;
+    // disables submit button "submitBtn"
+    
+    restartBtn.disabled = true;
+    // enables restart button "restartBtn"
+
+    guessInput.disabled = false;
+    // disables guess input box "guessInput"
 }
 
 // event listeners
