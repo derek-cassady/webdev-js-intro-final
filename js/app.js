@@ -15,7 +15,7 @@ const guessHistory = document.getElementById("guess-history"); //line 33
 const submitBtn = document.getElementById("submit-btn"); //line 38
 const restartBtn = document.getElementById("restart-btn"); //line 39
 
-// game vars
+// game vars (global scope)
 
 // computerGuess
 let randomNumber = Math.floor(Math.random() * 10) + 1; 
