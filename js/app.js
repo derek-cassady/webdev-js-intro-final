@@ -135,7 +135,21 @@ function endGame(isWin) {
 
 // restart game
 function restartGame() {
-
+    // reset all values of the game per the readme
+    // global scope variables update
+    // maxAttmepts is immutable
+    
+    randomNumber = Math.floor(Math.random() * 10) + 1;
+    // Math.random() gives number between 0 and 1
+    // *10 to get a number between 0 and 10
+    // Math.floor() Rounds down the decimal to a whole number
+    // +1 makes sure the range is 1 - 10
+    
+    attempts = 0;
+    // track the number of guesses
+    
+    history = [];
+    // assigns var 'history' to a blank array to be added to
 }
 
 // event listeners
