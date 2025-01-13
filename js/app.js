@@ -150,6 +150,16 @@ function restartGame() {
     
     history = [];
     // assigns var 'history' to a blank array to be added to
+
+    // clear the DOM elements of everything
+    // input
+    guessInput.value = "";
+    
+    // readouts
+    guessMessage.textContent = "";
+    currentGuess.textContent = "";
+    computerGuess.textContent = "";
+    guessHistory.textContent = "";
 }
 
 // event listeners
